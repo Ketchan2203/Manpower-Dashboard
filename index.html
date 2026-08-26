@@ -2371,10 +2371,6 @@ function renderZoneBoxByKey(zk){
   const left = document.createElement('div'); left.appendChild(nameSpan);
   titleWrap.appendChild(left); titleWrap.appendChild(colorInput);
   box.appendChild(titleWrap);
-  const hint = document.createElement('div');
-  hint.className='hint';
-  hint.textContent = T('พื้นที่ตกแต่ง — ลากเครื่องฉีดมาวางตรงนี้ได้อิสระ','Decorative backdrop — drag injection machines here freely');
-  box.appendChild(hint);
   return box;
 }
 
