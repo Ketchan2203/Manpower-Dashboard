@@ -2254,7 +2254,11 @@ function renderFloorTab(){
       renderTabs();
     }
   });
-  buildCanvas();
+ buildCanvas();
+
+setTimeout(() => {
+  fitCanvasToScreen();
+}, 50);
 }
 
 function setCanvasZoom(z){
