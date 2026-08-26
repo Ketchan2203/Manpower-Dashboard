@@ -2179,6 +2179,12 @@ function renderFloorTab(){
       <span class="zoom-pct" id="zoom-pct-label">${Math.round(state.canvasZoom*100)}%</span>
       <button id="zoom-in-btn" title="${T('ขยาย','Zoom in')}">+</button>
       <button id="zoom-reset-btn" style="width:auto;padding:0 10px;font-size:11px;" title="${T('รีเซ็ตซูม','Reset zoom')}">${T('รีเซ็ต','Reset')}</button>
+      <button
+  id="zoom-fit-btn"
+  style="width:auto;padding:0 10px;font-size:11px;"
+>
+  📐 Fit
+</button>
       <button id="add-area-btn" style="width:auto;padding:0 12px;font-size:11px;margin-left:10px;background:var(--red);color:#fff;border:none;border-radius:6px;height:30px;cursor:pointer;">${T('✏️ วาดพื้นที่ใหม่','✏️ Add custom area')}</button>
       <button id="save-layout-btn" style="width:auto;padding:0 12px;font-size:11px;margin-left:6px;background:var(--green);color:#fff;border:none;border-radius:6px;height:30px;cursor:pointer;font-weight:700;">${T('💾 บันทึกผัง (Fix ตำแหน่ง)','💾 Save Layout (Fix positions)')}</button>
     </div>
@@ -2265,6 +2271,38 @@ function applyCanvasZoom(){
   inner.style.transform = 'scale('+z+')';
   sizer.style.width = (natW*z)+'px';
   sizer.style.height = (natH*z)+'px';
+}
+  function fitCanvasToScreen() {
+  const wrapper = document.getElementById('factory-canvas');
+  const inner = document.getElementById('factory-canvas-inner');
+
+  if (!wrapper || !inner) return;
+
+  const natW = parseFloat(inner.dataset.natW || 0);
+  const natH = parseFloat(inner.dataset.natH || 0);
+
+  if (!natW || !natH) return;
+
+  const availableW = wrapper.clientWidth - 40;
+  const availableH = window.innerHeight - 250;
+
+  const zoomX = availableW / natW;
+  const zoomY = availableH / natH;
+
+  let zoom = Math.min(zoomX, zoomY);
+
+  // จำกัดช่วงซูม
+  zoom = Math.max(0.3, Math.min(1.5, zoom));
+
+  state.canvasZoom = Math.round(zoom * 100) / 100;
+
+  applyCanvasZoom();
+
+  const label = document.getElementById('zoom-pct-label');
+  if (label) {
+    label.textContent =
+      Math.round(state.canvasZoom * 100) + '%';
+  }
 }
 
 function buildCanvas(){
