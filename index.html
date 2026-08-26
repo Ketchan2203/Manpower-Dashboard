@@ -2211,6 +2211,7 @@ function renderFloorTab(){
   document.getElementById('zoom-in-btn').addEventListener('click', ()=>{ setCanvasZoom(state.canvasZoom+0.1); });
   document.getElementById('zoom-out-btn').addEventListener('click', ()=>{ setCanvasZoom(state.canvasZoom-0.1); });
   document.getElementById('zoom-reset-btn').addEventListener('click', ()=>{ setCanvasZoom(1); });
+  document.getElementById('zoom-fit-btn').addEventListener('click', fitCanvasToScreen);
   document.getElementById('add-area-btn').addEventListener('click', addCustomArea);
   document.getElementById('save-layout-btn').addEventListener('click', saveCurrentLayout);
   document.getElementById('roster-filter-group').addEventListener('change', e=>{ state.rosterFilterGroup=e.target.value; renderRosterInto(document.getElementById('roster-tray')); });
@@ -2261,6 +2262,11 @@ function setCanvasZoom(z){
   const label = document.getElementById('zoom-pct-label');
   if(label) label.textContent = Math.round(state.canvasZoom*100)+'%';
   applyCanvasZoom();
+
+if (!state.canvasZoomInitialized) {
+  state.canvasZoomInitialized = true;
+  setTimeout(fitCanvasToScreen, 50);
+}
 }
 function applyCanvasZoom(){
   const inner = document.getElementById('factory-canvas-inner');
