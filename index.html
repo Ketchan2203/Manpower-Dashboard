@@ -565,15 +565,13 @@ const ZONE_LABELS = {
 // Support (non-machine) work zones — droppable, simpler (operator pool only)
 // laborType: 'direct' = คนที่ผลิต/ประกอบชิ้นงานโดยตรง, 'indirect' = คนสนับสนุนการผลิต
 const SUPPORT_ZONES = [
-  {id:'materialctrl2f', side:'L', label:'2nd Floor: Material Control', baseReq:4, banner:true, laborType:'indirect'},
+  {id:'materialctrl2f', side:'L', label:'Material Control', baseReq:5, banner:true, laborType:'indirect'},
   {id:'boxservice',  side:'L', label:'Box service',            baseReq:2, laborType:'indirect'},
-  {id:'wip',         side:'R', label:'WIP',                    baseReq:0, laborType:'indirect'},
+  {id:'wip',         side:'R', label:'Delivery',                    baseReq:2, laborType:'indirect'},
   {id:'secondpool',  side:'R', label:'2nd Process (ส่วนกลาง)', baseReq:3, isBreakPool:true, laborType:'direct'},
   {id:'qcout',       side:'R', label:'QC Outgoing',            baseReq:2, laborType:'indirect'},
-  {id:'matreceive',  side:'R', label:'Material receiving area',baseReq:2, laborType:'indirect'},
-  {id:'moldstorage1',side:'L', label:'Mold Storage Area',      baseReq:0, laborType:'indirect'},
-  {id:'moldmaint',   side:'R', label:'Mold Maintenance (KE Shop)', baseReq:3, laborType:'indirect'},
-  {id:'moldstorage2',side:'R', label:'Mold Storage Area',      baseReq:0, laborType:'indirect'},
+  {id:'matreceive',  side:'R', label:'Set up',baseReq:10, laborType:'indirect'},
+  {id:'moldmaint',   side:'R', label:'Mold Maintenance', baseReq:8, laborType:'indirect'},
   {id:'wiparea',     side:'R', label:'WIP Area',                baseReq:0, laborType:'indirect'},
   {id:'machmaint',   side:'R', label:'Machine Maintenance',     baseReq:4, laborType:'indirect'},
   {id:'cmmroom',     side:'R', label:'CMM Room',                 baseReq:4, laborType:'indirect'},
