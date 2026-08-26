@@ -2287,7 +2287,7 @@ function buildCanvas(){
   keys.forEach(k=>{ if(!order.includes(k)) order.push(k); });
   state.regionZOrder = order;
 
-  order.forEach((itemKey,zi)=>{
+  finalOrder.forEach((itemKey,zi)=>{
     const [kind,id] = itemKey.split(':');
     let regionEl;
     if(kind==='support'){
