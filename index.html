@@ -2323,7 +2323,11 @@ function buildCanvas(){
       regionEl.style.width = clampedW+'px';
       regionEl.style.height = clampedH+'px';
     }
-    regionEl.style.zIndex = 10+zi;
+    if(itemKey.startsWith('machine:')){
+regionEl.style.zIndex = 1000 + zi;
+}else{
+regionEl.style.zIndex = 10 + zi;
+}
 
     const handle = document.createElement('div');
     handle.className='region-drag-handle';
