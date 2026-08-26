@@ -2323,7 +2323,9 @@ function buildCanvas(){
       regionEl.style.width = clampedW+'px';
       regionEl.style.height = clampedH+'px';
     }
-    regionEl.style.zIndex = 10+zi;
+    // Keep cream zone boxes behind all cards/other items.
+    // Zones can still overlap freely, but they must never cover machine/support cards.
+    regionEl.style.zIndex = (kind === 'zone') ? 1 : (20 + zi);
 
     const handle = document.createElement('div');
     handle.className='region-drag-handle';
@@ -2380,8 +2382,9 @@ function onRegionPointerDown(e){
   e.preventDefault(); e.stopPropagation();
   const region = e.currentTarget.closest('.region-item');
   const itemKey = region.dataset.itemKey;
+  // Zone boxes stay in the background even when dragged.
   bringRegionToFront(itemKey);
-  region.style.zIndex = 999;
+  if(!itemKey.startsWith('zone:')) region.style.zIndex = 999;
   const pos = state.regionPos[itemKey];
   regionDrag = { itemKey, startX:e.clientX, startY:e.clientY, origX:pos.x, origY:pos.y, sourceEl:region };
   window.addEventListener('pointermove', onRegionPointerMove);
