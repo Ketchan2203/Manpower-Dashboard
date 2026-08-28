@@ -3962,7 +3962,7 @@ function initFirebase(){
     /* Simple password gate — no Firebase Auth needed.
        The correct password hash is checked client-side.
        Change the PASS_HASH below to update the password. */
-    const PASS_HASH = '2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881'; // SHA-256 of "A"
+    const PASS_HASH = '36608b5f2582588c7715a651927f53c866aeeb2c4e963612a82f2ceb766b0c5c'; // SHA-256 of "PM12345"
 
     async function sha256(str){
       const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
