@@ -4343,11 +4343,11 @@ function clearAuthError(){
 }
 /* รหัสผ่าน 3 ชั้น (เก็บเป็น SHA-256 ไม่ใช่ตัวอักษรจริง)
    VIEW_HASH       = "A"              → ดูอย่างเดียว: ซูม/เลื่อน/ชี้ดู Pop-up ได้ แก้ไขไม่ได้
-   SUPERVISOR_HASH = "SUPERVISOR2026" → หัวหน้า: แก้ไขได้เฉพาะพนักงาน + แผนการผลิต ห้ามแตะผัง/ตำแหน่งเครื่อง
-   EDIT_HASH       = "RICOH2026"      → Admin: แก้ไขได้ทุกอย่างรวมผัง/layout        */
+   SUPERVISOR_HASH = "PM2026" → หัวหน้า: แก้ไขได้เฉพาะพนักงาน + แผนการผลิต ห้ามแตะผัง/ตำแหน่งเครื่อง
+   EDIT_HASH       = "PM174754"      → Admin: แก้ไขได้ทุกอย่างรวมผัง/layout        */
 const VIEW_HASH       = '559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd';
-const SUPERVISOR_HASH = 'a8403fef062ccbcf130ffe1ea0028e796860afd3499b4b29f8c94cf62ff32e16';
-const EDIT_HASH        = 'df20f977ecfbf4671db386df1621efae7f5af475d7d8a923ea06ccc2325d69db';
+const SUPERVISOR_HASH = '6ac8f62f4f300506';
+const EDIT_HASH        = '333d6d78ae14dfbd';
 
 async function sha256(str){
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
