@@ -5099,10 +5099,6 @@ function clearAuthError(){
   const el = document.getElementById('ag-error');
   if(el){ el.textContent=''; el.classList.remove('show'); }
 }
-/* รหัสผ่าน 3 ชั้น (เก็บเป็น SHA-256 ไม่ใช่ตัวอักษรจริง)
-   VIEW_HASH       = "A"              → ดูอย่างเดียว: ซูม/เลื่อน/ชี้ดู Pop-up ได้ แก้ไขไม่ได้
-   SUPERVISOR_HASH = "PM2026"   → หัวหน้า: แก้ไขได้เฉพาะพนักงาน + แผนการผลิต ห้ามแตะผัง/ตำแหน่งเครื่อง
-   EDIT_HASH       = "PMadmin"  → Admin: แก้ไขได้ทุกอย่างรวมผัง/layout             */
 const VIEW_HASH       = '559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd';
 const SUPERVISOR_HASH = '12e7eb30f451f965f9104be87c28bbd172958dcc0a49351c37ed50b41add9360';
 const EDIT_HASH       = 'c93c585332ea81bd0fcc089cba491d49064791d4f29abe93e98b223f69c22715';
